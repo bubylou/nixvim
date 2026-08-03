@@ -172,6 +172,7 @@ in
   };
 
   plugins = {
+    supermaven.enable = true;
     web-devicons.enable = enable_nerd_fonts;
     render-markdown.enable = true;
     guess-indent.enable = true;

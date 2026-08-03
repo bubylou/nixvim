@@ -5,11 +5,13 @@
 
   plugins.luasnip.enable = true; # autoEnableSources not enough
 
+  plugins.blink-cmp-copilot.enable = true;
+  plugins.blink-cmp-git.enable = true;
+  plugins.blink-cmp-nixpkgs-maintainers.enable = true;
   plugins.blink-cmp = {
     enable = true;
 
     settings = {
-
       keymap = {
         # All presets have the following mappings:
         # <tab>/<s-tab>: move to right/left of your snippet expansion
@@ -41,8 +43,40 @@
           "path"
           "snippets"
           "lazydev"
+          "git"
+          "nixpkgs_maintainers"
+          "copilot"
         ];
+
         providers = {
+          copilot = {
+            module = "blink-cmp-copilot";
+            name = "copilot";
+            score_offset = 100;
+          };
+
+          git = {
+            module = "blink-cmp-git";
+            name = "git";
+            score_offset = 100;
+            opts = {
+              commit = { };
+              git_centers = {
+                git_hub = { };
+              };
+            };
+          };
+
+          nixpkgs_maintainers = {
+            module = "blink_cmp_nixpkgs_maintainers";
+            name = "nixpkgs maintainers";
+            opts = {
+              cache_lifetime = 14;
+              silent = false;
+              nixpkgs_flake_uri = "nixpkgs";
+            };
+          };
+
           lazydev = {
             module = "lazydev.integrations.blink";
             score_offset = 100;
