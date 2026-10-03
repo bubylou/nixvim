@@ -7,7 +7,6 @@
       bash
       python
       ssh_config
-      tmux
 
       nix
       query # treesitter queries
