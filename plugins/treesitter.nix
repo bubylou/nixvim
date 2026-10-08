@@ -39,6 +39,13 @@
       typescript
     ];
 
+    indent = {
+      enable = true;
+      disable = [
+        "ruby"
+      ];
+    };
+
     settings = {
       highlight = {
         enable = true;
@@ -48,12 +55,6 @@
         ];
       };
 
-      indent = {
-        enable = true;
-        disable = [
-          "ruby"
-        ];
-      };
     };
   };
 }
